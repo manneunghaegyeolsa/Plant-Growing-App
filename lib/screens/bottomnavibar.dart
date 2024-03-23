@@ -38,44 +38,44 @@ class _BottomNaviBarState extends State<BottomNaviBar> {
           items: <BottomNavigationBarItem>[
             BottomNavigationBarItem(
                 icon: SvgPicture.asset(
-                  'assets/icons/user.svg',
+                  'assets/icons/home.svg',
                   color: AppColor.gray,
                 ),
                 activeIcon: SvgPicture.asset(
-                  'assets/icons/user.svg',
+                  'assets/icons/home.svg',
                   color: AppColor.primaryGreen,
                 ),
                 label: '홈'),
             BottomNavigationBarItem(
                 icon: SvgPicture.asset(
-                  'assets/icons/user.svg',
+                  'assets/icons/plant.svg',
                   color: AppColor.gray,
                 ),
                 activeIcon: SvgPicture.asset(
-                  'assets/icons/user.svg',
+                  'assets/icons/plant.svg',
                   color: AppColor.primaryGreen,
                 ),
                 label: '나의식물'),
             BottomNavigationBarItem(
                 icon: SvgPicture.asset(
-                  'assets/icons/user.svg',
+                  'assets/icons/dashboard.svg',
                   color: AppColor.gray,
                 ),
                 activeIcon: SvgPicture.asset(
-                  'assets/icons/user.svg',
+                  'assets/icons/dashboard.svg',
                   color: AppColor.primaryGreen,
                 ),
-                label: '식물 통계'),
+                label: '나의기여'),
             BottomNavigationBarItem(
                 icon: SvgPicture.asset(
-                  'assets/icons/user.svg',
+                  'assets/icons/challenge.svg',
                   color: AppColor.gray,
                 ),
                 activeIcon: SvgPicture.asset(
-                  'assets/icons/user.svg',
+                  'assets/icons/challenge.svg',
                   color: AppColor.primaryGreen,
                 ),
-                label: '식물진단'),
+                label: '대항전'),
             BottomNavigationBarItem(
                 icon: SvgPicture.asset(
                   'assets/icons/user.svg',
