@@ -1,4 +1,8 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
+import 'package:flutter/widgets.dart';
+import 'package:solvers/designs/color.dart';
 
 class FirstPage extends StatefulWidget {
   const FirstPage({super.key});
@@ -10,8 +14,119 @@ class FirstPage extends StatefulWidget {
 class _FirstPageState extends State<FirstPage> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Text("FirstPage"),
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: AppColor.primaryGreen,
+        title: Text("추천 식물",
+        style: TextStyle(
+          fontFamily: 'Stylish',
+          fontSize: 36,
+          color: AppColor.white,
+        ),),
+      ),
+      body: Container(
+        padding: EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+        child: Column(
+          children: [
+            Align(
+              alignment: Alignment.topLeft,
+              child: Text("추천 결과",
+                style: TextStyle(
+                fontFamily: 'Stylish',
+                fontSize: 30,
+                color: AppColor.black,
+              ),
+              ),
+            ),
+            SizedBox(
+              height: 12,
+            ),
+            Expanded(
+              child: ListView.separated(
+                  scrollDirection: Axis.vertical,
+                  separatorBuilder: (BuildContext context, int index) {
+                    return Container(
+                      height: 8,
+                    );
+                  },
+                  itemCount: 6,
+                  itemBuilder: (BuildContext context, int index){
+                    return GestureDetector(
+                      child: Container(
+                        padding: EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+                        width: double.maxFinite,
+                        decoration: BoxDecoration(
+                          border: Border.all(
+                            color: AppColor.gray,
+                          ),
+                          borderRadius: BorderRadius.circular(8),
+                          // image: DecorationImage(
+                          //   image: AssetImage('assets/images/plant.webp'),
+                          //   colorFilter: ColorFilter.mode(
+                          //   Colors.black.withOpacity(0.2),
+                          //     BlendMode.darken),
+                          //   )
+                        ),
+                        child: Column(
+                          children: [
+                            Align(
+                              alignment: Alignment.centerRight,
+                              child: GestureDetector(
+                                onTap: () {
+                                  
+                                },
+                                child: Container(
+                                          height: 24,
+                                          width: 56,
+                                          child: Center(child: Text("키우기", style: TextStyle(color: AppColor.white),)),
+                                          decoration: BoxDecoration(
+                                            color: AppColor.primaryGreen,
+                                            borderRadius: BorderRadius.circular(8)
+                                          ),
+                                        ),
+                              ),
+                            ),
+                            Row(
+                              children: [
+                                Container(
+                                  height: 110,
+                                  width: 110,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(8),
+                                    image: DecorationImage(
+                                      image: AssetImage('assets/images/plant.webp'),
+                                      fit: BoxFit.cover,
+                                      )
+                                  ),
+                                ),
+                                SizedBox(width: 12,),
+                                Expanded(
+                                  child: Center(
+                                    child: Text(
+                                      overflow: TextOverflow.clip,
+                                      '식물 이름',
+                                      style: TextStyle(
+                                        fontFamily: 'Stylish',
+                                        fontSize: 36,
+                                      ),
+                                    ),
+                                  ),
+                                )
+                              ],
+                            ),
+                            SizedBox(height: 16,),
+                            Text('공작선인장 종류의 생선뼈선인장은 수집가들로 부터 많은 인기를 가지고 있어요.\n 가시가 없고 공중 뿌리가 줄기를 따라 자라나 마치 생선뼈를 닮아 생선뼈 선인장이라고 불리운답니다. 선인장 종류 중 성장이 빠른편이고 물을 좋아하는 편이에요. 충분한 햇빛을 받고 성장하는 여름을 거쳐 기온이 떨어지는 가을에는 꽃이 피어요. 꽃이 피고 난 뒤 맺는 열매는 새콤하고 부드러운 과일푸딩의 맛이 난답니다.'),
+                            SizedBox(height: 12,),
+                          ],
+                        )
+                      ),
+                    );
+                  },
+                ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }

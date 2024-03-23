@@ -13,10 +13,12 @@ class SecondPage extends StatefulWidget {
 }
 
 class _SecondPageState extends State<SecondPage> {
+  int level = 0;
   int water = 0;
   int waterCount = 2;
-  DateTime? vitaminDate = DateTime.now();
-  DateTime? soilDate = DateTime.now();
+  DateTime? vitaminDate = DateTime(2024,03,17);
+  DateTime? soilDate = DateTime(2024,03,10);
+  String name =  '엘레강스한 나의 풀풀이';
 
   @override
   Widget build(BuildContext context) {
@@ -36,11 +38,12 @@ class _SecondPageState extends State<SecondPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Text('Level. 0',
+            SizedBox(height: 20,),
+            Text('Level. $level',
             style: TextStyle(
               fontSize: 16,
             ),),
-            Text('내 식물 별명',
+            Text('$name',
             style: TextStyle(
               fontSize: 18,
             ),),
@@ -106,7 +109,7 @@ class _SecondPageState extends State<SecondPage> {
                   ),
                   GestureDetector(
                     onTap: () {
-                      confirmMessage('영양제 주기', AppColor.yellow, null);
+                      confirmMessage('영양제 주기', AppColor.yellow, giveVitamin);
                     },
                     child: Container(
                       width: 60,
@@ -123,7 +126,7 @@ class _SecondPageState extends State<SecondPage> {
                   ),
                   GestureDetector(
                     onTap: () {
-                      confirmMessage('분갈이 하기', AppColor.brown, null);
+                      confirmMessage('분갈이 하기', AppColor.brown, giveSoil);
                     },
                     child: Container(
                       width: 60,
@@ -157,6 +160,19 @@ class _SecondPageState extends State<SecondPage> {
       });
       print(water);
     }
+    if (water == waterCount){
+      level +=1;
+    }
+  }
+  void giveVitamin(){
+    setState(() {
+      vitaminDate = DateTime.now();
+    });
+  }
+  void giveSoil(){
+    setState(() {
+      soilDate = DateTime.now();
+    });
   }
 
   confirmMessage(msg, color, action) {
