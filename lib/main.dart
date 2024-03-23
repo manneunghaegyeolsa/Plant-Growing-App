@@ -15,7 +15,7 @@ class Solvers extends StatelessWidget {
     return MaterialApp(
       title: 'Solvers',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(seedColor: Color.fromARGB(255, 114, 240, 141)),
         useMaterial3: true,
       ),
       home: BottomNaviBar(1),
