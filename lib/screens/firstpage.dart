@@ -73,7 +73,7 @@ class _FirstPageState extends State<FirstPage> {
                               alignment: Alignment.centerRight,
                               child: GestureDetector(
                                 onTap: () {
-                                  
+                                  makePlant('귀여운 풀', 'plantImage');
                                 },
                                 child: Container(
                                           height: 24,
@@ -128,5 +128,83 @@ class _FirstPageState extends State<FirstPage> {
         ),
       ),
     );
+  }
+  makePlant(plantName, plantImage){
+    showDialog(context: context, 
+    barrierDismissible: false,
+    builder: (content){
+      return Dialog(
+        backgroundColor: AppColor.white,
+        shadowColor: Colors.transparent,
+        surfaceTintColor: Colors.transparent,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(
+              8.0), // 테두리의 둥근 정도 조절
+        ),
+        child: Padding(padding: EdgeInsets.all(20),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text('$plantName', 
+            style: TextStyle(
+              fontSize: 24,
+              fontFamily: 'Stylish'),
+            ),
+            TextFormField(
+              decoration: InputDecoration(
+                            isDense: true,
+                            contentPadding: const EdgeInsets.symmetric(
+                                vertical: 12, horizontal: 16),
+                            focusedBorder: const OutlineInputBorder(
+                              borderSide: BorderSide(
+                                color: AppColor.black,
+                              ),
+                            ),
+                            enabledBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(8),
+                                borderSide: BorderSide(
+                                  color: AppColor.gray,
+                                )),
+                            hintText: "식물 이름을 지어주세요",
+                            hintStyle: TextStyle(
+                              fontSize: 14,
+                              fontFamily: 'Pretendard',
+                              fontWeight: FontWeight.w400,
+                              color: AppColor.gray,
+                            ),),
+            ),
+            SizedBox(height: 12,),
+            Row(
+              children: [
+                Spacer(),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: AppColor.gray,
+                      borderRadius: BorderRadius.circular(4)
+                    ),
+                    padding: EdgeInsets.symmetric(horizontal: 4, vertical: 1),
+                    child: Text('취소', style: TextStyle(color: AppColor.white),))),
+                  SizedBox(width: 8,),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: AppColor.primaryGreen,
+                      borderRadius: BorderRadius.circular(4)
+                    ),
+                    padding: EdgeInsets.symmetric(horizontal: 4, vertical: 1),
+                    child: Text('키우기', style: TextStyle(color: AppColor.white),)))
+              ],
+            )
+          ],
+        ),),
+      );
+    });
   }
 }
