@@ -23,8 +23,8 @@ class _BottomNaviBarState extends State<BottomNaviBar> {
   List _pages = [
     FirstPage(),
     SecondPage(),
-    ThirdPage(),
     FourthPage(),
+    ThirdPage(),
     FifthPage(),
   ];
 
@@ -65,7 +65,7 @@ class _BottomNaviBarState extends State<BottomNaviBar> {
                   'assets/icons/dashboard.svg',
                   color: AppColor.primaryGreen,
                 ),
-                label: '나의기여'),
+                label: '식물병원'),
             BottomNavigationBarItem(
                 icon: SvgPicture.asset(
                   'assets/icons/challenge.svg',
@@ -75,7 +75,7 @@ class _BottomNaviBarState extends State<BottomNaviBar> {
                   'assets/icons/challenge.svg',
                   color: AppColor.primaryGreen,
                 ),
-                label: '대항전'),
+                label: '식물도감'),
             BottomNavigationBarItem(
                 icon: SvgPicture.asset(
                   'assets/icons/user.svg',
