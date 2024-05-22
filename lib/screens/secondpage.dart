@@ -1,3 +1,5 @@
+import 'package:amplify_auth_cognito/amplify_auth_cognito.dart';
+import 'package:amplify_flutter/amplify_flutter.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -13,12 +15,30 @@ class SecondPage extends StatefulWidget {
 }
 
 class _SecondPageState extends State<SecondPage> {
+  List<dynamic> imageList = ['assets/images/a.png','assets/images/b.jpg','assets/images/c.jpg','assets/images/d.webp','assets/images/e.jpg'];
   int level = 0;
   int water = 0;
   int waterCount = 2;
   DateTime? vitaminDate = DateTime(2024,03,17);
   DateTime? soilDate = DateTime(2024,03,10);
   String name =  '엘레강스한 나의 풀풀이';
+  String _userId = '';
+  dynamic image = 'assets/images/a.png';
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    _getCurrentUser();
+    super.initState();
+  }
+  void _getCurrentUser() async {
+    try {
+      AuthUser authUser = await Amplify.Auth.getCurrentUser();
+      print(authUser.username);
+    } catch (e) {
+      print('Error getting current user: $e');
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -57,7 +77,9 @@ class _SecondPageState extends State<SecondPage> {
                 borderRadius: BorderRadius.circular(8),
                 //color: Colors.grey[300]
                 image: DecorationImage(image: 
-                AssetImage('assets/images/plant.webp'),
+                AssetImage(
+                  image
+                ),
                 fit: BoxFit.cover)
               ),
             ),
@@ -163,15 +185,27 @@ class _SecondPageState extends State<SecondPage> {
     if (water == waterCount){
       level +=1;
     }
+    if(water == 1){
+      setState(() {
+        image = imageList[1];
+      });
+    }
+    if(water == 2){
+      setState(() {
+        image = imageList[2];
+      });
+    }
   }
   void giveVitamin(){
     setState(() {
       vitaminDate = DateTime.now();
+      image = imageList[3];
     });
   }
   void giveSoil(){
     setState(() {
       soilDate = DateTime.now();
+      image = imageList[4];
     });
   }
 
