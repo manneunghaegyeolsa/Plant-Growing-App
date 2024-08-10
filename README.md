@@ -24,7 +24,7 @@
 | <a href="https://github.com/veronica2550">@veronica2550</a>  | 프론트엔드(Flutter) |
 
 <br/>
-<a href="https://github.com/SongOgong/LaundryCoach-FE">👉 프론트엔드 레포</a>
+<a href="https://github.com/manneunghaegyeolsa/Plant-Growing-App.git">👉 프론트엔드 레포</a>
 
 
 <br/>
